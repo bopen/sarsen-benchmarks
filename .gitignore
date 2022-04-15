@@ -1,3 +1,8 @@
+# Ignore folders created by asv
+env/
+results/
+sarsen/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
