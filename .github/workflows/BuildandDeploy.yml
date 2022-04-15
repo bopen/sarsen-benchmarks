@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-activate-base: true
+
+      - name: Install asv
+        run: |
+          conda install -c conda-forge asv
+
+      - name: Run asv
+        run: |
+          asv machine --yes
+          asv run
+          asv gh-pages
