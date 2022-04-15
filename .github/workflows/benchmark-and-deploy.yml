@@ -32,5 +32,5 @@ jobs:
           GITHUB_USER: ${{ github.actor }}
         shell: bash -l {0}
         run: |
-          git config --global user.name $GITHUB_USER
+          git config --global user.name $GITHUB_USER --rewrite
           asv gh-pages

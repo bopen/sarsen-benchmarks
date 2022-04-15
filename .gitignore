@@ -2,6 +2,7 @@
 env/
 results/
 sarsen/
+html/
 .asv/
 
 # Byte-compiled / optimized / DLL files
