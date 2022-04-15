@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+
+      - name: Setup asv
+        shell: bash -l {0}
+        run: |
+          pip install asv
+          sudo apt-get update -y
+
+      - name: Run benchmarks
+        shell: bash -l {0}
+        run: |
+          asv machine --yes
+          asv run
+
+      - name: Deploy on GH pages
+        shell: bash -l {0}
+        run: |
+          asv gh-pages
