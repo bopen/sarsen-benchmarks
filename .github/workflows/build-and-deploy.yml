@@ -11,15 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-activate-base: true
-
-      - name: Install asv
+      - name: Install and run asv
         run: |
           conda install -c conda-forge asv
-
-      - name: Run asv
-        run: |
           asv machine --yes
           asv run
           asv gh-pages
