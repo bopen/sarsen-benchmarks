@@ -31,7 +31,7 @@ jobs:
         shell: bash -l {0}
         run: |
           asv machine --yes
-          asv run --show-stderr
+          asv run -q -v --show-stderr
 
       - name: Deploy on GH pages
         env:
