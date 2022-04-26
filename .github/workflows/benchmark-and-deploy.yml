@@ -30,7 +30,7 @@ jobs:
         shell: bash -l {0}
         run: |
           asv machine --yes
-          asv run -q -v --show-stderr
+          asv run 495a29b..main --steps 10 --show-stderr --strict
 
       - name: Deploy on GH pages
         env:
