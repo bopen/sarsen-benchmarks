@@ -24,8 +24,7 @@ jobs:
       - name: Setup asv
         shell: bash -l {0}
         run: |
-          pip install asv
-          sudo apt-get update -y
+          conda install -c conda-forge asv --yes
 
       - name: Run benchmarks
         shell: bash -l {0}
