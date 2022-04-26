@@ -31,7 +31,7 @@ jobs:
         shell: bash -l {0}
         run: |
           asv machine --yes
-          asv run cb20941..main --steps 10 --show-stderr
+          asv run cb20941 --show-stderr
 
       - name: Deploy on GH pages
         env:
