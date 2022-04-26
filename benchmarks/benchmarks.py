@@ -6,7 +6,7 @@ from sarsen import apps
 
 
 class TimeSuite:
-    timeout = 240
+    timeout = 600
     params = ["gamma_nearest", "gamma_bilinear"]
 
     def __init__(self):
