@@ -5,12 +5,18 @@ on:
     branches:
       - main
 
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   benchmark:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: true
 
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v2
@@ -25,7 +31,7 @@ jobs:
         shell: bash -l {0}
         run: |
           asv machine --yes
-          asv run
+          asv run cb20941..main --steps 10
 
       - name: Deploy on GH pages
         env:
