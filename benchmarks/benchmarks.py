@@ -5,9 +5,9 @@ import xarray as xr
 from sarsen import apps
 
 
-class TimeSuite:
+class Suite:
     timeout = 600
-    params = ["gamma_nearest", "gamma_bilinear"]
+    params = [None, "gamma_nearest", "gamma_bilinear"]
 
     def __init__(self):
         self.datadir = os.path.abspath(
