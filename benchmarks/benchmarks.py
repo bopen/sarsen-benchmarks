@@ -42,7 +42,6 @@ class Suite:
                 correct_radiometry=params[0],
                 output_urlpath=tmp.name,
                 grouping_area_factor=(3, 3),
-                open_dem_raster_kwargs={"chunks": 1024},
             )
 
     def time_terrain_correction(self, *params):
